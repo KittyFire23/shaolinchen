@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shaolin chen - Escuela de Kung Fu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Noto Serif SC', serif, serif;
+      background-color: #fdf6f0;
+      color: #4a2c2a;
+    }
+    header {
+      background-color: #8b0000;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header img {
+      height: 70px;
+      vertical-align: middle;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 28px;
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 15px;
+    }
+
+    nav {
+      margin-top: 90px;
+      background-color: #b22222;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      width: 100%;
+      top: 100px;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 14px 25px;
+      font-weight: bold;
+      font-size: 17px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    nav button:hover,
+    nav button.active {
+      background-color: #a11a1a;
+    }
+    main {
+      padding: 180px 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      color: #8b0000;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    /* Estilo para sección inicio */
+    .inicio-contenido {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .texto-inicio {
+      flex: 1 1 400px;
+      font-size: 1.1em;
+      line-height: 1.6;
+      text-align: justify;
+      min-width: 280px;
+    }
+    .imagen-inicio img {
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(139,0,0,0.5);
+      flex-shrink: 0;
+    }
+    /* Sección quienes somos */
+    .foto-lateral {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .foto-lateral img {
+      width: 320px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(139,0,0,0.4);
+      flex-shrink: 0;
+    }
+    .foto-lateral p {
+      flex: 1 1 250px;
+      font-size: 1em;
+      line-height: 1.5;
+      color: #3a231f;
+      margin-top: 0;
+      text-align: justify;
+    }
+    /* Sección director */
+    #director .foto-lateral {
+      margin-top: 20px;
+    }
+    #director .foto-lateral img {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(139,0,0,0.4);
+      margin-bottom: 10px;
+    }
+    #director .foto-lateral p {
+      font-weight: 700;
+      margin-top: 0;
+      color: #4a2c2a;
+      text-align: center;
+    }
+    /* Galería */
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .galeria-img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .galeria-img:hover {
+      transform: scale(1.05);
+    }
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #8b0000;
+    }
+    /* Contacto */
+    #contacto p {
+      font-size: 1.1em;
+      margin: 5px 0;
+      font-weight: 600;
+    }
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 15px;
+      box-shadow: 0 0 15px rgba(139,0,0,0.3);
+    }
+    /* Animaciones */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    /* Responsive */
+    @media(max-width: 850px) {
+      .inicio-contenido {
+        flex-direction: column;
+        align-items: center;
+      }
+      .foto-lateral {
+        flex-direction: column;
+        align-items: center;
+      }
+      .grid-galeria {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      nav {
+        flex-wrap: wrap;
+      }
+    }
+    @media(max-width: 400px) {
+      .grid-galeria {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/Sx5HHKG8/Imagen-de-Whats-App-2025-07-23-a-las-11-54-16-f1ad0194.jpg" alt="Logo Shaolinchen" />
+    <h1>Escuela de Kung fu Shaolin chen</h1>
+  </header>
+
+  <nav>
+    <button onclick="mostrar('inicio')" class="active">Inicio</button>
+    <button onclick="mostrar('quienes')">Quiénes Somos</button>
+    <button onclick="mostrar('director')">Director General</button>
+    <button onclick="mostrar('galeria')">Galería</button>
+    <button onclick="mostrar('contacto')">Contacto</button>
+  </nav>
+
+<main>
+  <section id="inicio" class="active" tabindex="0">
+    <h2>Shaolin chen - Escuela de Kung Fu, Tai Chi y Chi Kung</h2>
+    <div class="inicio-contenido" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
+      <div class="texto-inicio" style="flex: 1 1 60%;">
+        <p>
+          Bienvenidos a <strong>Shaolin chen</strong>, un espacio dedicado al arte milenario del Kung Fu Shaolin y a las disciplinas internas del Tai Chi Chuan y el Chi Kung. Desde hace más de 40 años, nuestra escuela se propone algo más profundo que el mero aprendizaje técnico: buscamos la transformación del ser a través del movimiento, la respiración y la conciencia.
+        </p>
+        <p>
+          El Kung Fu que enseñamos no es solo una disciplina marcial, sino una vía de autoconocimiento, respeto y equilibrio. En cada clase transmitimos valores como la constancia, la humildad, la paciencia y la superación personal.
+        </p>
+        <p>
+          Por su parte, el <strong>Chi Kung</strong> cultiva la energía vital (Chi) mediante ejercicios suaves, respiración consciente y concentración. Esta práctica fortalece la salud, calma la mente y conecta al practicante con su centro interno. El <strong>Tai Chi Chuan</strong>, en cambio, se encarga de canalizar y distribuir esa energía a través de movimientos fluidos y armónicos que simulan un combate interno. Ambas prácticas están profundamente entrelazadas: una cultiva la energía, la otra la moviliza. Juntas forman una alquimia poderosa para el cuerpo y el espíritu.
+        </p>
+        <p>
+          Nuestras puertas están abiertas para niños a partir de los 12 años, jóvenes y adultos sin límite de edad. No se requiere experiencia previa: solo la intención genuina de comenzar un camino hacia uno mismo.
+        </p>
+      </div>
+      <div class="imagen-inicio" style="flex: 1 1 35%; text-align: center;">
+        <img src="https://i.postimg.cc/HxZ022kY/Logo-escuela.jpg" alt="Escuela Shaolinchen" style="max-width: 100%; height: auto; border-radius: 12px;" />
+      </div>
+    </div>
+  </section>
+</main>
+
+   <section id="quienes" tabindex="0">
+  <h2>Quiénes Somos</h2>
+  <div class="texto-centrado">
+    <p>
+      Fundada en los años 80, nuestra institución nace del compromiso profundo con las enseñanzas tradicionales del Templo Shaolin, pero también con la visión de adaptarlas al contexto actual, manteniendo su esencia. Durante más de cuatro décadas, nos hemos dedicado a formar generaciones de practicantes en el camino del Kung Fu Shaolin, el Tai Chi Chuan y el Chi Kung, no solo como disciplinas físicas, sino como verdaderas herramientas para la transformación interna.
+    </p>
+
+    <p>
+      En Shaolin chen, creemos que la práctica marcial no debe limitarse al combate o la forma, sino que debe abarcar el desarrollo completo del individuo. Por eso, cada clase está impregnada de valores como el respeto, la perseverancia, la humildad, el compromiso y la conciencia plena. Estos pilares no solo forman buenos artistas marciales, sino también mejores personas.
+    </p>
+
+    <p>
+      Nuestra enseñanza se basa en la tradición viva: no imitamos al pasado, lo encarnamos y lo renovamos constantemente a través del ejemplo, la práctica consciente y el vínculo entre maestro y alumno. Transmitimos no solo técnicas, sino también historia, filosofía oriental, ética y espiritualidad.
+    </p>
+
+    <p>
+      El cultivo de la energía interna (Chi) es uno de los núcleos de nuestra escuela. En un mundo cada vez más acelerado y desconectado, enseñamos a respirar, a detenerse, a observar el presente. El Chi Kung y el Tai Chi que practicamos no son solo ejercicios: son una forma de volver al eje, de reencontrarse con uno mismo.
+    </p>
+
+    <p>
+      En nuestra comunidad conviven practicantes de todas las edades y trayectorias, desde niños hasta adultos mayores, unidos por un mismo propósito: crecer, evolucionar y compartir este legado. Nos sentimos parte de una cadena ancestral, y con humildad y responsabilidad, asumimos el rol de custodiar y expandir ese conocimiento.
+    </p>
+
+    <p>
+      Si buscás un espacio de crecimiento físico, mental y espiritual, en armonía con una tradición milenaria, Shaolinchen es tu lugar.
+    </p>
+  </div>
+
+  <div class="foto-lateral-abajo">
+    <img src="https://i.postimg.cc/52TksNBr/Imagen-de-Whats-App-2025-07-24-a-las-16-12-04-6b7ad3f0.jpg" alt="Primera Escuela" />
+    <p><strong>La primera escuela, en el año 1984:</strong><br>El Shifu R.J Yang y su plantel de profesores.</p>
+  </div>
+</section>
+
+<style>
+  .texto-centrado {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.1em;
+  }
+
+  .foto-lateral-abajo {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    text-align: center;
+  }
+
+  .foto-lateral-abajo img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(139,0,0,0.4);
+    margin-bottom: 10px;
+  }
+</style>
+
+
+ <section id="director" tabindex="0">
+  <h2>Director General</h2>
+  <div class="texto-centrado">
+    <p>
+      El Shifu R.J. Yang es el fundador y guía espiritual de nuestra escuela, así como el creador del estilo que llevamos con profundo respeto y orgullo. Su recorrido en las artes marciales comenzó en su juventud y se ha nutrido de diversas tradiciones orientales, entre las que se destaca su formación en la rama del Ninjutsu Shidōchi Shingon, una escuela que integra aspectos físicos, energéticos y espirituales del guerrero tradicional.
+    </p>
+    <p>
+      Este linaje, profundamente ligado a enseñanzas esotéricas del budismo Shingon, así como a técnicas de movimiento, sigilo, estrategia y conexión interna propias del Ninjutsu, ha influido notablemente en su visión del arte marcial: una visión que no se limita al combate, sino que busca cultivar el cuerpo, la mente y el espíritu de forma integrada.
+    </p>
+    <p>
+      Con más de 40 años de experiencia, el Shifu Yang ha creado un estilo propio, sólido y coherente, que sintetiza la esencia del Kung Fu Shaolin, el Tai Chi Chuan, el Chi Kung, y sus raíces en el Ninjutsu tradicional. Este enfoque único no solo forma técnicamente a los practicantes, sino que los acompaña en un camino profundo de transformación personal.
+    </p>
+    <p>
+      Todas las formaciones de la escuela son directamente supervisadas por el Shifu Yang, garantizando que cada enseñanza conserve su profundidad, autenticidad y coherencia. Su presencia constante asegura que los valores esenciales del camino marcial —como la perseverancia, la humildad, el respeto y el equilibrio interior— estén siempre vivos en cada clase.
+    </p>
+    <p>
+      Más que formar luchadores, el Shifu Yang forma seres humanos conscientes, capaces de enfrentar la vida con fortaleza, compasión y sabiduría.
+    </p>
+  </div>
+  <div class="foto-lateral-abajo">
+    <img src="https://i.postimg.cc/7ZbpBzSw/Imagen-de-Whats-App-2025-07-23-a-las-11-57-06-d5b04821.jpg" alt="Shifu Yang" />
+    <p>Shifu Yang, director general y creador del estilo.</p>
+  </div>
+</section>
+
+<style>
+  .texto-centrado {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    line-height: 1.6;
+    font-size: 1.1em;
+  }
+
+  .foto-lateral-abajo {
+    max-width: 800px;
+    margin: 30px auto 0 auto;
+    text-align: center;
+  }
+
+  .foto-lateral-abajo img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(139,0,0,0.4);
+    margin-bottom: 10px;
+  }
+</style>
+
+ <section id="galeria" tabindex="0">
+  <h2>Galería de Fotos</h2>
+  <div class="grid-galeria-mejorada">
+    <!-- Fotos previas -->
+    <img src="https://i.postimg.cc/D88kLJPf/1000113932-4.jpg" alt="Clase 3" class="galeria-img" />
+  
+
+    <!-- Fotos nuevas -->
+    <img src="https://i.postimg.cc/4Nhv6pkG/photo-2025-07-27-11-57-34.jpg" alt="Foto 1" class="galeria-img" />
+   
+    <img src="https://i.postimg.cc/52BwG12k/photo-2025-07-27-11-57-44.jpg" alt="Foto 4" class="galeria-img" />
+    <img src="https://i.postimg.cc/HLTQ1KJW/photo-2025-07-27-11-57-50.jpg" alt="Foto 5" class="galeria-img" />
+    <img src="https://i.postimg.cc/MGt16DR7/photo-2025-07-27-11-57-53.jpg" alt="Foto 6" class="galeria-img" />
+    <img src="https://i.postimg.cc/KzzBRMrd/photo-2025-07-27-11-57-56.jpg" alt="Foto 7" class="galeria-img" />
+    <img src="https://i.postimg.cc/DZMsswxm/photo-2025-07-27-11-57-59.jpg" alt="Foto 8" class="galeria-img" />
+    <img src="https://i.postimg.cc/tJn6zGck/photo-2025-07-27-11-58-01.jpg" alt="Foto 9" class="galeria-img" />
+    <img src="https://i.postimg.cc/rz6rnYXk/photo-2025-07-27-11-58-04.jpg" alt="Foto 10" class="galeria-img" />
+    <img src="https://i.postimg.cc/Y2vDPGKn/photo-2025-07-27-11-58-07.jpg" alt="Foto 11" class="galeria-img" />
+    <img src="https://i.postimg.cc/Hs5ZpqLb/photo-2025-07-27-11-58-10.jpg" 
+    <img src="https://i.postimg.cc/zfNkXvQr/photo-2025-07-27-11-58-23.jpg" alt="Foto 16" class="galeria-img" />
+ <img src="https://i.postimg.cc/dQfmZ4fn/photo-2025-07-27-11-57-37.jpg" alt="Foto 17" class="galeria-img" />
+
+
+
+  </div>
+</section>
+
+
+<section id="contacto" tabindex="0">
+  <h2>Contacto</h2>
+  <p>Teléfono: <strong>1133062688</strong></p>
+  <p>Dirección: Rivadavia 4128, Ciudad de Buenos Aires</p>
+  <iframe 
+    src="https://www.google.com/maps?q=Rivadavia+4128,+Buenos+Aires&output=embed" 
+    allowfullscreen 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación Rivadavia 4128">
+  </iframe>
+</section>
+</main>
+
+
+<!-- Lightbox para ampliar imágenes -->
+<div id="lightbox" onclick="cerrarLightbox()">
+  <img id="lightbox-img" src="" alt="Imagen ampliada" />
+</div>
+
+<script>
+  // Función para mostrar secciones y activar botón
+  function mostrar(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    document.querySelector(`nav button[onclick="mostrar('${id}')"]`).classList.add("active");
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Lightbox para galería
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const galeriaImgs = document.querySelectorAll('.galeria-img');
+
+  galeriaImgs.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    });
+  });
+
+  function cerrarLightbox() {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+
+  // Cerrar lightbox al presionar tecla ESC
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && lightbox.style.display === 'flex') {
+      cerrarLightbox();
+    }
+  });
+</script>
+
+<style>
+  /* Galería centrada y con mejor tamaño */
+  .grid-galeria-mejorada {
+    max-width: 900px;
+    margin: 20px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .grid-galeria-mejorada img.galeria-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(139,0,0,0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .grid-galeria-mejorada img.galeria-img:hover {
+    transform: scale(1.05);
+  }
+  /* Responsivo */
+  @media(max-width: 850px) {
+    .grid-galeria-mejorada {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 600px;
+    }
+  }
+  @media(max-width: 450px) {
+    .grid-galeria-mejorada {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+    }
+  }
+
+  /* Estilo para el lightbox */
+  #lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.5);
+  }
+</style>
+
