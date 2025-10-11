@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Shaolin Chen - Escuela de Kung Fu</title>
   <style>
     * {
@@ -42,8 +42,8 @@
       text-align: center;
     }
 
-    /* Navegación fija */
-    nav {
+    /* Navegación para escritorio */
+    nav.desktop-nav {
       background-color: #b22222;
       display: flex;
       justify-content: center;
@@ -54,7 +54,7 @@
       flex-wrap: wrap;
       padding: 6px 0;
     }
-    nav button {
+    nav.desktop-nav button {
       background: none;
       border: none;
       color: white;
@@ -67,15 +67,83 @@
       text-align: center;
       margin: 6px;
       border-radius: 6px;
+      touch-action: manipulation;
     }
-    nav button:hover,
-    nav button.active {
+    nav.desktop-nav button:hover,
+    nav.desktop-nav button.active {
       background-color: #a11a1a;
+    }
+
+    /* Menú hamburguesa para móvil */
+    .mobile-menu-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1100;
+      touch-action: manipulation;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(178, 34, 34, 0.95);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1050;
+    }
+    .mobile-menu.active {
+      display: flex;
+    }
+    .mobile-menu button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 16px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      margin: 8px 0;
+      width: 80%;
+      max-width: 300px;
+      text-align: center;
+      border-radius: 8px;
+      touch-action: manipulation;
+    }
+    .mobile-menu button:hover,
+    .mobile-menu button.active {
+      background: #a11a1a;
+    }
+    .close-menu {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #8b0000;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
     }
 
     /* Contenido principal */
     main {
-      padding: 130px 16px 40px;
+      padding: 130px 16px 60px;
       max-width: 1000px;
       margin: auto;
     }
@@ -141,7 +209,7 @@
       text-align: center;
     }
 
-    /* Galería mejorada - Fotos verticales y horizontales */
+    /* Galería */
     .grid-galeria {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -156,21 +224,19 @@
       box-shadow: 0 0 10px rgba(139,0,0,0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
-      height: 200px; /* Altura fija para uniformidad */
+      height: 200px;
+      touch-action: manipulation;
     }
-    .galeria-item:hover {
+    .galeria-item:hover,
+    .galeria-item:focus {
       transform: scale(1.03);
       box-shadow: 0 0 15px rgba(139,0,0,0.5);
     }
     .galeria-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Recorta la imagen manteniendo proporción */
+      object-fit: cover;
       object-position: center;
-      transition: transform 0.3s ease;
-    }
-    .galeria-item:hover img {
-      transform: scale(1.05);
     }
 
     /* Contacto */
@@ -227,49 +293,52 @@
       cursor: pointer;
       z-index: 2000;
     }
-    #lightbox img {
+    #lightbox-content {
+      text-align: center;
+      color: white;
       max-width: 90%;
       max-height: 90%;
+    }
+    #lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
       border-radius: 10px;
       box-shadow: 0 0 20px #8b0000;
+      margin-bottom: 15px;
+    }
+    #lightbox-caption {
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 0 10px;
     }
 
-    /* Animación */
+    /* Aviso */
+    .aviso-autorizacion {
+      text-align: center;
+      font-size: 0.85em;
+      color: #7a5a58;
+      padding: 12px 16px;
+      background: #f8f0e8;
+      border-top: 1px solid #e8d8d0;
+      margin-top: 30px;
+      font-style: italic;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
 
     /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 14px;
+    @media (max-width: 768px) {
+      nav.desktop-nav {
+        display: none !important;
       }
-      header img {
-        height: 30px;
-      }
-      nav {
-        top: 40px;
-        flex-direction: column;
-        align-items: center;
-      }
-      nav button {
-        width: 85%;
-        max-width: 280px;
-        padding: 12px 16px;
-        font-size: 14px;
-        margin: 8px 0;
-        min-width: auto;
+      .mobile-menu-btn {
+        display: block;
       }
       main {
-        padding: 140px 12px 30px;
-      }
-      h2 {
-        font-size: 20px;
-      }
-      .texto-inicio,
-      .texto-centrado {
-        font-size: 0.95em;
+        padding: 80px 16px 80px;
       }
       .grid-galeria {
         grid-template-columns: 1fr;
@@ -278,12 +347,13 @@
       .galeria-item {
         height: 180px;
       }
-      #contacto .sede-item {
-        font-size: 13px;
+      .aviso-autorizacion {
+        font-size: 0.8em;
+        padding: 10px;
       }
     }
 
-    @media (min-width: 601px) and (max-width: 850px) {
+    @media (min-width: 769px) and (max-width: 850px) {
       .grid-galeria {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -299,13 +369,24 @@
     <h1>Escuela de Kung Fu Shaolin Chen</h1>
   </header>
 
-  <nav>
+  <nav class="desktop-nav">
     <button onclick="mostrar('inicio')" class="active">Inicio</button>
     <button onclick="mostrar('quienes')">Quiénes Somos</button>
     <button onclick="mostrar('director')">Director General</button>
     <button onclick="mostrar('galeria')">Galería</button>
     <button onclick="mostrar('contacto')">Contacto</button>
   </nav>
+
+  <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="mostrarDesdeMobile('inicio')">Inicio</button>
+    <button onclick="mostrarDesdeMobile('quienes')">Quiénes Somos</button>
+    <button onclick="mostrarDesdeMobile('director')">Director General</button>
+    <button onclick="mostrarDesdeMobile('galeria')">Galería</button>
+    <button onclick="mostrarDesdeMobile('contacto')">Contacto</button>
+    <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+  </div>
 
   <main>
     <!-- Inicio -->
@@ -346,7 +427,7 @@
           Nuestra enseñanza se basa en la tradición viva: no imitamos al pasado, lo encarnamos y lo renovamos constantemente a través del ejemplo, la práctica consciente y el vínculo entre maestro y alumno. Transmitimos no solo técnicas, sino también historia, filosofía oriental, ética y espiritualidad.
         </p>
         <p>
-          El cultivo de la energía interna (Chi) es uno de los núcleos de nuestra escuela. En un mundo cada vez más acelerado y desconectado, enseñamos a respirar, a detenerse, a observar el presente. El Chi Kung y el Tai Chi que practicamos no son solo ejercicios: son una forma de volver al eje, de reencontrarse con uno mismo.
+          El cultivo de la energía interna (Chi) es uno de los núcleos de nuestra escuela. En un mundo cada vez más acelerado y desconectado, enseñamos a respirar, a detenerse, a observar el presente. El Chi Kung y el Tai Chi Chuan que practicamos no son solo ejercicios: son una forma de volver al eje, de reencontrarse con uno mismo.
         </p>
         <p>
           En nuestra comunidad conviven practicantes de todas las edades y trayectorias, desde niños hasta adultos mayores, unidos por un mismo propósito: crecer, evolucionar y compartir este legado. Nos sentimos parte de una cadena ancestral, y con humildad y responsabilidad, asumimos el rol de custodiar y expandir ese conocimiento.
@@ -391,44 +472,93 @@
     <section id="galeria" tabindex="0">
       <h2>Galería de Fotos</h2>
       <div class="grid-galeria">
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg')">
-          <img src="https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg" alt="photo-2025-10-10-13-19-06" />
+        <!-- Foto 1 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg', '')">
+          <img src="https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg" alt="Galería 1" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg')">
-          <img src="https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg" alt="photo-2025-10-10-13-19-19" />
+        <!-- Foto 2 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg', 'Sifu Yang junto al Sifu Victor.')">
+          <img src="https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg" alt="Galería 2" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg')">
-          <img src="https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg" alt="photo-2025-10-10-13-19-44" />
+        <!-- Foto 3 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg', 'A la derecha el Sifu Yang, en el centro el Sifu Ayos.')">
+          <img src="https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg" alt="Galería 3" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg')">
-          <img src="https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg" alt="photo-2025-10-10-13-20-00" />
+        <!-- Foto 4 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg', '')">
+          <img src="https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg" alt="Galería 4" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg')">
-          <img src="https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg" alt="photo-2025-10-10-13-20-16" />
+        <!-- Foto 5 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg', '')">
+          <img src="https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg" alt="Galería 5" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg')">
-          <img src="https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg" alt="photo-2025-10-10-13-20-28" />
+        <!-- Foto 6 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg', '')">
+          <img src="https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg" alt="Galería 6" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg')">
-          <img src="https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg" alt="photo-2025-10-10-13-20-58" />
+        <!-- Foto 7 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')">
+          <img src="https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg" alt="Galería 7" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg')">
-          <img src="https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg" alt="photo-2025-10-10-13-21-12" />
+        <!-- Foto 8 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')">
+          <img src="https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg" alt="Galería 8" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg')">
-          <img src="https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg" alt="photo-2025-10-10-13-41-52" />
+        <!-- Foto 9 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg', 'Finalizando práctica en cumpleaños del Gran Maestro Yang.')">
+          <img src="https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg" alt="Galería 9" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg')">
-          <img src="https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg" alt="photo-2025-10-10-13-42-16" />
+        <!-- Foto 10 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg', 'Entrenamiento en C.A.B.A.')">
+          <img src="https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg" alt="Galería 10" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg')">
-          <img src="https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg" alt="photo-2025-10-10-13-54-35" />
+        <!-- Foto 11 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg', 'Sifu Yang junto a Sifu Spina.')">
+          <img src="https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg" alt="Galería 11" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg')">
-          <img src="https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg" alt="photo-2025-10-10-13-55-05" />
+        <!-- Foto 12 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg', 'Cumpleaños N°18, sede Ciudad Evita, del Maestro J.P. Spina.')">
+          <img src="https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg" alt="Galería 12" />
         </div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg')">
-          <img src="https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg" alt="photo-2025-10-10-13-55-27" />
+        <!-- Foto 13 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg', '')">
+          <img src="https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg" alt="Galería 13" />
+        </div>
+        <!-- Foto 14 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg', 'Sifu Yang junto a la Profesora Patricia M.')">
+          <img src="https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg" alt="Galería 14" />
+        </div>
+        <!-- Foto 15 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg', 'Entrenamiento en C.A.B.A.')">
+          <img src="https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg" alt="Galería 15" />
+        </div>
+        <!-- Foto 16 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg', '')">
+          <img src="https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg" alt="Galería 16" />
+        </div>
+        <!-- Foto 17 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg', '')">
+          <img src="https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg" alt="Galería 17" />
+        </div>
+        <!-- Foto 18 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg', '')">
+          <img src="https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg" alt="Galería 18" />
+        </div>
+        <!-- Foto 19 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg', '')">
+          <img src="https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg" alt="Galería 19" />
+        </div>
+        <!-- Foto 20 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg', '')">
+          <img src="https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg" alt="Galería 20" />
+        </div>
+        <!-- Foto 21 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg', '')">
+          <img src="https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg" alt="Galería 21" />
+        </div>
+        <!-- Foto 22 -->
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg', '')">
+          <img src="https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg" alt="Galería 22" />
         </div>
       </div>
     </section>
@@ -456,37 +586,57 @@
     </section>
   </main>
 
+  <div class="aviso-autorizacion">
+    Sitio web no oficial con fines educativos e informativos.
+  </div>
+
   <!-- Lightbox -->
   <div id="lightbox" onclick="cerrarLightbox()">
-    <img id="lightbox-img" src="" alt="Imagen ampliada" />
+    <div id="lightbox-content">
+      <img id="lightbox-img" src="" alt="Imagen ampliada" />
+      <div id="lightbox-caption"></div>
+    </div>
   </div>
 
   <script>
     function mostrar(id) {
       document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll("nav.desktop-nav button").forEach(btn => btn.classList.remove("active"));
       const sec = document.getElementById(id);
       if (sec) sec.classList.add("active");
-      const btn = document.querySelector(`nav button[onclick="mostrar('${id}')"]`);
+      const btn = document.querySelector(`nav.desktop-nav button[onclick="mostrar('${id}')"]`);
       if (btn) btn.classList.add("active");
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Lightbox
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+    function mostrarDesdeMobile(id) {
+      mostrar(id);
+      toggleMobileMenu();
+    }
 
-    function ampliarFoto(src) {
-      lightboxImg.src = src;
-      lightbox.style.display = 'flex';
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+
+    function ampliarFoto(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      const captionEl = document.getElementById('lightbox-caption');
+      if (caption) {
+        captionEl.textContent = caption;
+        captionEl.style.display = 'block';
+      } else {
+        captionEl.style.display = 'none';
+      }
+      document.getElementById('lightbox').style.display = 'flex';
     }
 
     function cerrarLightbox() {
-      lightbox.style.display = 'none';
+      document.getElementById('lightbox').style.display = 'none';
     }
 
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+      if (e.key === 'Escape' && document.getElementById('lightbox').style.display === 'flex') {
         cerrarLightbox();
       }
     });
