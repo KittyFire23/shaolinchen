@@ -3,370 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Shaolin Chen - Escuela de Kung Fu</title>
+  <title>Asociación del Noroeste Argentino: Escuela de Kung Fu Shaolin Chen</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Noto Serif SC', serif;
-      background-color: #fdf6f0;
-      color: #4a2c2a;
-      line-height: 1.6;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Serif SC', serif; background-color: #fdf6f0; color: #4a2c2a; line-height: 1.6; }
 
-    /* Header fijo */
     header {
-      background-color: #8b0000;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 12px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background-color: #8b0000; color: white; display: flex; align-items: center; justify-content: center;
+      padding: 8px 12px; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    header img {
-      height: 35px;
-      margin-right: 8px;
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 15px;
-      text-align: center;
-    }
+    header img { height: 35px; margin-right: 8px; }
+    header h1 { margin: 0; font-weight: 700; font-size: 15px; text-align: center; }
 
-    /* Navegación para escritorio */
     nav.desktop-nav {
-      background-color: #b22222;
-      display: flex;
-      justify-content: center;
-      position: fixed;
-      width: 100%;
-      top: 45px;
-      z-index: 999;
-      flex-wrap: wrap;
-      padding: 6px 0;
+      background-color: #b22222; display: flex; justify-content: center; position: fixed;
+      width: 100%; top: 45px; z-index: 999; flex-wrap: wrap; padding: 6px 0;
     }
     nav.desktop-nav button {
-      background: none;
-      border: none;
-      color: white;
-      padding: 10px 16px;
-      font-weight: bold;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      min-width: 110px;
-      text-align: center;
-      margin: 6px;
-      border-radius: 6px;
-      touch-action: manipulation;
+      background: none; border: none; color: white; padding: 10px 16px; font-weight: bold; font-size: 14px;
+      cursor: pointer; transition: background-color 0.3s ease; min-width: 110px; text-align: center;
+      margin: 6px; border-radius: 6px; touch-action: manipulation;
     }
-    nav.desktop-nav button:hover,
-    nav.desktop-nav button.active {
-      background-color: #a11a1a;
-    }
+    nav.desktop-nav button:hover, nav.desktop-nav button.active { background-color: #a11a1a; }
 
-    /* Menú hamburguesa para móvil */
     .mobile-menu-btn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 50px;
-      height: 50px;
-      background: #8b0000;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      z-index: 1100;
-      touch-action: manipulation;
+      display: none; position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;
+      background: #8b0000; color: white; border: none; border-radius: 50%; font-size: 24px;
+      cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3); z-index: 1100; touch-action: manipulation;
     }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(178, 34, 34, 0.95);
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1050;
+    .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(178, 34, 34, 0.95); flex-direction: column; justify-content: center; align-items: center; z-index: 1050;
     }
-    .mobile-menu.active {
-      display: flex;
-    }
+    .mobile-menu.active { display: flex; }
     .mobile-menu button {
-      background: none;
-      border: none;
-      color: white;
-      padding: 16px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      margin: 8px 0;
-      width: 80%;
-      max-width: 300px;
-      text-align: center;
-      border-radius: 8px;
+      background: none; border: none; color: white; padding: 16px 30px; font-size: 18px;
+      font-weight: bold; margin: 8px 0; width: 80%; max-width: 300px; text-align: center; border-radius: 8px;
       touch-action: manipulation;
     }
-    .mobile-menu button:hover,
-    .mobile-menu button.active {
-      background: #a11a1a;
-    }
+    .mobile-menu button:hover, .mobile-menu button.active { background: #a11a1a; }
     .close-menu {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: #8b0000;
-      color: white;
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 50%;
-      font-size: 20px;
-      cursor: pointer;
+      position: absolute; top: 20px; right: 20px; background: #8b0000; color: white;
+      width: 40px; height: 40px; border: none; border-radius: 50%; font-size: 20px; cursor: pointer;
     }
 
-    /* Contenido principal */
-    main {
-      padding: 130px 16px 60px;
-      max-width: 1000px;
-      margin: auto;
-    }
+    main { padding: 130px 16px 60px; max-width: 1000px; margin: auto; }
+    section { display: none; animation: fadeIn 0.5s ease-in-out; }
+    section.active { display: block; }
+    h2 { color: #8b0000; margin-bottom: 15px; font-weight: 700; font-size: 22px; text-align: center; }
 
-    section {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    section.active {
-      display: block;
-    }
+    .inicio-contenido { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .texto-inicio { flex: 1 1 350px; font-size: 1em; text-align: justify; }
+    .imagen-inicio img { max-width: 100%; max-height: 300px; border-radius: 10px; box-shadow: 0 0 12px rgba(139,0,0,0.5); }
 
-    h2 {
-      color: #8b0000;
-      margin-bottom: 15px;
-      font-weight: 700;
-      font-size: 22px;
-      text-align: center;
-    }
+    .texto-centrado { max-width: 800px; margin: 0 auto 20px; text-align: justify; font-size: 1em; }
+    .foto-centrada { max-width: 800px; margin: 20px auto 0; text-align: center; }
+    .foto-centrada img { width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 0 12px rgba(139,0,0,0.4); margin-bottom: 10px; }
+    .foto-centrada p { font-weight: 700; color: #4a2c2a; text-align: center; }
 
-    /* Inicio */
-    .inicio-contenido {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
+    .grid-galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 15px auto 0; max-width: 900px; }
+    .galeria-item { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 0 10px rgba(139,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; height: 200px; touch-action: manipulation;
     }
-    .texto-inicio {
-      flex: 1 1 350px;
-      font-size: 1em;
-      text-align: justify;
-    }
-    .imagen-inicio img {
-      max-width: 100%;
-      max-height: 300px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(139,0,0,0.5);
-    }
+    .galeria-item:hover, .galeria-item:focus { transform: scale(1.03); box-shadow: 0 0 15px rgba(139,0,0,0.5); }
+    .galeria-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
-    /* Texto centrado */
-    .texto-centrado {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      text-align: justify;
-      font-size: 1em;
+    #contacto .info-contacto { max-width: 700px; margin: 0 auto 20px; text-align: center; font-size: 1em; }
+    #contacto .info-contacto p { margin: 8px 0; font-weight: 600; word-break: break-word; }
+    #contacto .info-contacto a { color: #8b0000; text-decoration: none; }
+    #contacto .sedes { margin-top: 15px; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto; padding: 12px;
+      background: #fff8f4; border-radius: 8px; box-shadow: 0 0 8px rgba(139,0,0,0.1);
     }
-    .foto-centrada {
-      max-width: 800px;
-      margin: 20px auto 0;
-      text-align: center;
-    }
-    .foto-centrada img {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(139,0,0,0.4);
-      margin-bottom: 10px;
-    }
-    .foto-centrada p {
-      font-weight: 700;
-      color: #4a2c2a;
-      text-align: center;
-    }
+    #contacto .sedes h3 { color: #8b0000; margin-bottom: 12px; text-align: center; font-size: 18px; }
+    #contacto .sede-item { margin-bottom: 10px; padding-left: 10px; border-left: 3px solid #b22222; font-weight: 600; font-size: 14px; }
 
-    /* Galería */
-    .grid-galeria {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 15px auto 0;
-      max-width: 900px;
+    #lightbox { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85);
+      justify-content: center; align-items: center; cursor: pointer; z-index: 2000;
     }
-    .galeria-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(139,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      height: 200px;
-      touch-action: manipulation;
-    }
-    .galeria-item:hover,
-    .galeria-item:focus {
-      transform: scale(1.03);
-      box-shadow: 0 0 15px rgba(139,0,0,0.5);
-    }
-    .galeria-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
+    #lightbox-content { text-align: center; color: white; max-width: 90%; max-height: 90%; }
+    #lightbox-img { max-width: 100%; max-height: 80vh; border-radius: 10px; box-shadow: 0 0 20px #8b0000; margin-bottom: 15px; }
+    #lightbox-caption { font-size: 1.1em; font-weight: bold; padding: 0 10px; }
 
-    /* Contacto */
-    #contacto .info-contacto {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      text-align: center;
-      font-size: 1em;
-    }
-    #contacto .info-contacto p {
-      margin: 8px 0;
-      font-weight: 600;
-      word-break: break-word;
-    }
-    #contacto .info-contacto a {
-      color: #8b0000;
-      text-decoration: none;
-    }
-    #contacto .sedes {
-      margin-top: 15px;
-      text-align: left;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 12px;
-      background: #fff8f4;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(139,0,0,0.1);
-    }
-    #contacto .sedes h3 {
-      color: #8b0000;
-      margin-bottom: 12px;
-      text-align: center;
-      font-size: 18px;
-    }
-    #contacto .sede-item {
-      margin-bottom: 10px;
-      padding-left: 10px;
-      border-left: 3px solid #b22222;
-      font-weight: 600;
-      font-size: 14px;
-    }
-
-    /* Lightbox */
-    #lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.85);
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      z-index: 2000;
-    }
-    #lightbox-content {
-      text-align: center;
-      color: white;
-      max-width: 90%;
-      max-height: 90%;
-    }
-    #lightbox-img {
-      max-width: 100%;
-      max-height: 80vh;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #8b0000;
-      margin-bottom: 15px;
-    }
-    #lightbox-caption {
-      font-size: 1.1em;
-      font-weight: bold;
-      padding: 0 10px;
-    }
-
-    /* Aviso */
     .aviso-autorizacion {
-      text-align: center;
-      font-size: 0.85em;
-      color: #7a5a58;
-      padding: 12px 16px;
-      background: #f8f0e8;
-      border-top: 1px solid #e8d8d0;
-      margin-top: 30px;
-      font-style: italic;
+      text-align: center; font-size: 0.85em; color: #7a5a58; padding: 12px 16px; background: #f8f0e8;
+      border-top: 1px solid #e8d8d0; margin-top: 30px; font-style: italic;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      nav.desktop-nav {
-        display: none !important;
-      }
-      .mobile-menu-btn {
-        display: block;
-      }
-      main {
-        padding: 80px 16px 80px;
-      }
-      .grid-galeria {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .galeria-item {
-        height: 180px;
-      }
-      .aviso-autorizacion {
-        font-size: 0.8em;
-        padding: 10px;
-      }
+      nav.desktop-nav { display: none !important; }
+      .mobile-menu-btn { display: block; }
+      main { padding: 80px 16px 80px; }
+      .grid-galeria { grid-template-columns: 1fr; gap: 10px; }
+      .galeria-item { height: 180px; }
+      .aviso-autorizacion { font-size: 0.8em; padding: 10px; }
     }
-
     @media (min-width: 769px) and (max-width: 850px) {
-      .grid-galeria {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .galeria-item {
-        height: 180px;
-      }
+      .grid-galeria { grid-template-columns: repeat(2, 1fr); }
+      .galeria-item { height: 180px; }
     }
   </style>
 </head>
 <body>
   <header>
     <img src="https://i.postimg.cc/Sx5HHKG8/Imagen-de-Whats-App-2025-07-23-a-las-11-54-16-f1ad0194.jpg" alt="Logo Shaolin Chen" />
-    <h1>Escuela de Kung Fu Shaolin Chen</h1>
+    <h1>Asociación del Noroeste Argentino: Escuela de Kung Fu Shaolin Chen</h1>
   </header>
 
   <nav class="desktop-nav">
@@ -378,7 +119,6 @@
   </nav>
 
   <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
-
   <div class="mobile-menu" id="mobileMenu">
     <button onclick="mostrarDesdeMobile('inicio')">Inicio</button>
     <button onclick="mostrarDesdeMobile('quienes')">Quiénes Somos</button>
@@ -394,18 +134,10 @@
       <h2>Shaolin Chen - Escuela de Kung Fu, Tai Chi y Chi Kung</h2>
       <div class="inicio-contenido">
         <div class="texto-inicio">
-          <p>
-            Bienvenidos a <strong>Shaolin Chen</strong>, un espacio dedicado al arte milenario del Kung Fu Shaolin y a las disciplinas internas del Tai Chi Chuan y el Chi Kung. Desde hace más de 40 años, nuestra escuela se propone algo más profundo que el mero aprendizaje técnico: buscamos la transformación del ser a través del movimiento, la respiración y la conciencia.
-          </p>
-          <p>
-            El Kung Fu que enseñamos no es solo una disciplina marcial, sino una vía de autoconocimiento, respeto y equilibrio. En cada clase transmitimos valores como la constancia, la humildad, la paciencia y la superación personal.
-          </p>
-          <p>
-            Por su parte, el <strong>Chi Kung</strong> cultiva la energía vital (Chi) mediante ejercicios suaves, respiración consciente y concentración. Esta práctica fortalece la salud, calma la mente y conecta al practicante con su centro interno. El <strong>Tai Chi Chuan</strong>, en cambio, se encarga de canalizar y distribuir esa energía a través de movimientos fluidos y armónicos que simulan un combate interno. Ambas prácticas están profundamente entrelazadas: una cultiva la energía, la otra la moviliza. Juntas forman una alquimia poderosa para el cuerpo y el espíritu.
-          </p>
-          <p>
-            Nuestras puertas están abiertas para niños a partir de los 12 años, jóvenes y adultos sin límite de edad. No se requiere experiencia previa: solo la intención genuina de comenzar un camino hacia uno mismo.
-          </p>
+          <p>Bienvenidos a <strong>Shaolin Chen</strong>, un espacio dedicado al arte milenario del Kung Fu Shaolin y las disciplinas internas del Tai Chi Chuan y Chi Kung. Desde hace más de 40 años, buscamos la transformación del ser a través del movimiento, la respiración y la conciencia.</p>
+          <p>El Kung Fu es una vía de autoconocimiento, respeto y equilibrio, transmitiendo valores como constancia, humildad, paciencia y superación personal.</p>
+          <p><strong>Chi Kung</strong> cultiva la energía vital (Chi) y <strong>Tai Chi Chuan</strong> distribuye esa energía mediante movimientos fluidos y armónicos. Juntas forman una práctica poderosa para cuerpo y espíritu.</p>
+          <p>Nuestras puertas están abiertas para niños desde los 12 años, jóvenes y adultos sin límite de edad. No se requiere experiencia previa, solo intención genuina.</p>
         </div>
         <div class="imagen-inicio">
           <img src="https://i.postimg.cc/HxZ022kY/Logo-escuela.jpg" alt="Escuela Shaolin Chen" />
@@ -413,58 +145,36 @@
       </div>
     </section>
 
-    <!-- Quiénes Somos -->
-    <section id="quienes" tabindex="0">
-      <h2>Quiénes Somos</h2>
-      <div class="texto-centrado">
-        <p>
-          Fundada en los años 80, nuestra institución nace del compromiso profundo con las enseñanzas tradicionales del Templo Shaolin, pero también con la visión de adaptarlas al contexto actual, manteniendo su esencia. Durante más de cuatro décadas, nos hemos dedicado a formar generaciones de practicantes en el camino del Kung Fu Shaolin, el Tai Chi Chuan y el Chi Kung, no solo como disciplinas físicas, sino como verdaderas herramientas para la transformación interna.
-        </p>
-        <p>
-          En Shaolin Chen, creemos que la práctica marcial no debe limitarse al combate o la forma, sino que debe abarcar el desarrollo completo del individuo. Por eso, cada clase está impregnada de valores como el respeto, la perseverancia, la humildad, el compromiso y la conciencia plena. Estos pilares no solo forman buenos artistas marciales, sino también mejores personas.
-        </p>
-        <p>
-          Nuestra enseñanza se basa en la tradición viva: no imitamos al pasado, lo encarnamos y lo renovamos constantemente a través del ejemplo, la práctica consciente y el vínculo entre maestro y alumno. Transmitimos no solo técnicas, sino también historia, filosofía oriental, ética y espiritualidad.
-        </p>
-        <p>
-          El cultivo de la energía interna (Chi) es uno de los núcleos de nuestra escuela. En un mundo cada vez más acelerado y desconectado, enseñamos a respirar, a detenerse, a observar el presente. El Chi Kung y el Tai Chi Chuan que practicamos no son solo ejercicios: son una forma de volver al eje, de reencontrarse con uno mismo.
-        </p>
-        <p>
-          En nuestra comunidad conviven practicantes de todas las edades y trayectorias, desde niños hasta adultos mayores, unidos por un mismo propósito: crecer, evolucionar y compartir este legado. Nos sentimos parte de una cadena ancestral, y con humildad y responsabilidad, asumimos el rol de custodiar y expandir ese conocimiento.
-        </p>
-        <p>
-          Si buscás un espacio de crecimiento físico, mental y espiritual, en armonía con una tradición milenaria, Shaolin Chen es tu lugar.
-        </p>
-      </div>
-      <div class="foto-centrada">
-        <img src="https://i.postimg.cc/52TksNBr/Imagen-de-Whats-App-2025-07-24-a-las-16-12-04-6b7ad3f0.jpg" alt="Primera Escuela en 1984" />
-        <p><strong>La primera escuela, en el año 1984:</strong><br>El Sifu R.J. Yang y su plantel de profesores.</p>
-      </div>
-    </section>
+  <!-- Quiénes Somos -->
+<section id="quienes" tabindex="0">
+  <h2>Quiénes Somos</h2>
+  <div class="texto-centrado">
+    <p>Fundada en los años 80, la escuela continúa compartiendo el legado del Templo Shaolin. Durante más de 40 años, ha formado generaciones de practicantes en Kung Fu Shaolin, Tai Chi Chuan y Chi Kung, desarrollando cuerpo, mente y espíritu.</p>
+    <p>Cada clase transmite valores como honor, lealtad y respeto, cultivando tanto la disciplina física como la conciencia interna. Las prácticas de Chi Kung y Tai Chi permiten reconectar con la energía vital y mantener el equilibrio personal.</p>
+    <p>La escuela cuenta con lugares de entrenamiento en C.A.B.A., La Boca, Misiones, Entre Ríos y varias localidades de la Provincia de Buenos Aires, ofreciendo un espacio de aprendizaje abierto a jóvenes y adultos de todas las edades.</p>
+  </div>
+  <div class="foto-centrada">
+    <img src="https://i.postimg.cc/52TksNBr/Imagen-de-Whats-App-2025-07-24-a-las-16-12-04-6b7ad3f0.jpg" alt="Primera Escuela en 1984" />
+    <p><strong>La primera escuela, en el año 1984:</strong><br>Shifu R.J. Yang y su plantel de profesores.</p>
+  </div>
+</section>
+
+
 
     <!-- Director -->
     <section id="director" tabindex="0">
       <h2>Director General</h2>
       <div class="texto-centrado">
-        <p>
-          El Sifu R.J. Yang es el fundador y guía espiritual de nuestra escuela, así como el creador del estilo que llevamos con profundo respeto y orgullo. Su recorrido en las artes marciales comenzó en su juventud y se ha nutrido de diversas tradiciones orientales, entre las que se destaca su formación en la rama del Ninjutsu Shidōchi Shingon, una escuela que integra aspectos físicos, energéticos y espirituales del guerrero tradicional.
-        </p>
-        <p>
-          Este linaje, profundamente ligado a enseñanzas esotéricas del budismo Shingon, así como a técnicas de movimiento, sigilo, estrategia y conexión interna propias del Ninjutsu, ha influido notablemente en su visión del arte marcial: una visión que no se limita al combate, sino que busca cultivar el cuerpo, la mente y el espíritu de forma integrada.
-        </p>
-        <p>
-          Con más de 40 años de experiencia, el Sifu Yang ha creado un estilo propio, sólido y coherente, que sintetiza la esencia del Kung Fu Shaolin, el Tai Chi Chuan, el Chi Kung, y sus raíces en el Ninjutsu tradicional. Este enfoque único no solo forma técnicamente a los practicantes, sino que los acompaña en un camino profundo de transformación personal.
-        </p>
-        <p>
-          Todas las formaciones de la escuela son directamente supervisadas por el Sifu Yang, garantizando que cada enseñanza conserve su profundidad, autenticidad y coherencia. Su presencia constante asegura que los valores esenciales del camino marcial —como la perseverancia, la humildad, el respeto y el equilibrio interior— estén siempre vivos en cada clase.
-        </p>
-        <p>
-          Más que formar luchadores, el Sifu Yang forma seres humanos conscientes, capaces de enfrentar la vida con fortaleza, compasión y sabiduría.
-        </p>
+        <p>El Shifu R.J. Yang es el máximo referente y transmisor de las artes marciales ancestrales. Formado en Ninjutsu Shidōchi Shingon, su práctica integra cuerpo, mente y espíritu, demostrando que las técnicas simples son las más efectivas.</p>
+        <p>Con más de 40 años de experiencia, transmite un método sólido que combina Kung Fu Shaolin, Tai Chi Chuan, Chi Kung y Ninjutsu, orientado a la técnica y al crecimiento personal.</p>
+        <p>Todas las formaciones son supervisadas por el Shifu Yang, preservando autenticidad, coherencia y valores como perseverancia, humildad, respeto y equilibrio interior.</p>
+        <p>Más que enseñar técnicas, guía a sus alumnos en un camino de conciencia, fortaleza y sabiduría.</p>
+        <p><strong>Director General:</strong> Shifu R.J Yang, maestro faja dorada de 8vo tuan.<br>
+        <strong>Presidente de la Asociación:</strong> Maestro Daniel Carballo, faja plateada de 6to tuan.</p>
       </div>
       <div class="foto-centrada">
-        <img src="https://i.postimg.cc/7ZbpBzSw/Imagen-de-Whats-App-2025-07-23-a-las-11-57-06-d5b04821.jpg" alt="Sifu Yang" />
-        <p>Sifu Yang, director general y creador del estilo.</p>
+        <img src="https://i.postimg.cc/7ZbpBzSw/Imagen-de-Whats-App-2025-07-23-a-las-11-57-06-d5b04821.jpg" alt="Shifu Yang" />
+        <p>Shifu Yang, director general y maximo exponente del estilo.</p>
       </div>
     </section>
 
@@ -472,98 +182,29 @@
     <section id="galeria" tabindex="0">
       <h2>Galería de Fotos</h2>
       <div class="grid-galeria">
-        <!-- Foto 1 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg', '')">
-          <img src="https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg" alt="Galería 1" />
-        </div>
-        <!-- Foto 2 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg', 'Sifu Yang junto al Sifu Victor.')">
-          <img src="https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg" alt="Galería 2" />
-        </div>
-        <!-- Foto 3 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg', 'A la derecha el Sifu Yang, en el centro el Sifu Ayos.')">
-          <img src="https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg" alt="Galería 3" />
-        </div>
-        <!-- Foto 4 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg', '')">
-          <img src="https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg" alt="Galería 4" />
-        </div>
-        <!-- Foto 5 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg', '')">
-          <img src="https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg" alt="Galería 5" />
-        </div>
-        <!-- Foto 6 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg', '')">
-          <img src="https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg" alt="Galería 6" />
-        </div>
-        <!-- Foto 7 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')">
-          <img src="https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg" alt="Galería 7" />
-        </div>
-        <!-- Foto 8 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')">
-          <img src="https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg" alt="Galería 8" />
-        </div>
-        <!-- Foto 9 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg', 'Finalizando práctica en cumpleaños del Gran Maestro Yang.')">
-          <img src="https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg" alt="Galería 9" />
-        </div>
-        <!-- Foto 10 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg', 'Entrenamiento en C.A.B.A.')">
-          <img src="https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg" alt="Galería 10" />
-        </div>
-        <!-- Foto 11 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg', 'Sifu Yang junto a Sifu Spina.')">
-          <img src="https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg" alt="Galería 11" />
-        </div>
-        <!-- Foto 12 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg', 'Cumpleaños N°18, sede Ciudad Evita, del Maestro J.P. Spina.')">
-          <img src="https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg" alt="Galería 12" />
-        </div>
-        <!-- Foto 13 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg', '')">
-          <img src="https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg" alt="Galería 13" />
-        </div>
-        <!-- Foto 14 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg', 'Sifu Yang junto a la Profesora Patricia M.')">
-          <img src="https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg" alt="Galería 14" />
-        </div>
-        <!-- Foto 15 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg', 'Entrenamiento en C.A.B.A.')">
-          <img src="https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg" alt="Galería 15" />
-        </div>
-        <!-- Foto 16 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg', '')">
-          <img src="https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg" alt="Galería 16" />
-        </div>
-        <!-- Foto 17 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg', '')">
-          <img src="https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg" alt="Galería 17" />
-        </div>
-        <!-- Foto 18 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg', '')">
-          <img src="https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg" alt="Galería 18" />
-        </div>
-        <!-- Foto 19 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg', '')">
-          <img src="https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg" alt="Galería 19" />
-        </div>
-        <!-- Foto 20 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg', '')">
-          <img src="https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg" alt="Galería 20" />
-        </div>
-        <!-- Foto 21 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg', '')">
-          <img src="https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg" alt="Galería 21" />
-        </div>
-        <!-- Foto 22 -->
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg', '')">
-          <img src="https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg" alt="Galería 22" />
-        </div>
-        <!-- Foto 23 -->
-<div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg', 'Maestro Carballo junto al Gran Maestro R.J. Yang.')">
-  <img src="https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg" alt="Galería 23" />
-</div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg', '')"><img src="https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg" alt="Galería 1" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg', 'Sifu Yang junto al Sifu Victor.')"><img src="https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg" alt="Galería 2" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg', 'A la derecha el Sifu Yang, en el centro el Sifu Ayos.')"><img src="https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg" alt="Galería 3" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg', '')"><img src="https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg" alt="Galería 4" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg', '')"><img src="https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg" alt="Galería 5" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg', '')"><img src="https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg" alt="Galería 6" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')"><img src="https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg" alt="Galería 7" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')"><img src="https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg" alt="Galería 8" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg', 'Finalizando práctica en cumpleaños del Gran Maestro Yang.')"><img src="https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg" alt="Galería 9" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg', 'Entrenamiento en C.A.B.A.')"><img src="https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg" alt="Galería 10" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg', 'Sifu Yang junto a Sifu Spina.')"><img src="https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg" alt="Galería 11" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg', 'Cumpleaños N°18, sede Ciudad Evita, del Maestro J.P. Spina.')"><img src="https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg" alt="Galería 12" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg', '')"><img src="https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg" alt="Galería 13" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg', 'Sifu Yang junto a la Profesora Patricia M.')"><img src="https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg" alt="Galería 14" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg', 'Entrenamiento en C.A.B.A.')"><img src="https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg" alt="Galería 15" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg', '')"><img src="https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg" alt="Galería 16" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg', '')"><img src="https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg" alt="Galería 17" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg', '')"><img src="https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg" alt="Galería 18" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg', '')"><img src="https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg" alt="Galería 19" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg', '')"><img src="https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg" alt="Galería 20" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg', '')"><img src="https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg" alt="Galería 21" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg', '')"><img src="https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg" alt="Galería 22" /></div>
+        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg', 'Maestro Carballo junto al Gran Maestro R.J. Yang.')"><img src="https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg" alt="Galería 23" /></div>
       </div>
     </section>
 
@@ -575,26 +216,24 @@
         <p><strong>Mariano Nuñez:</strong> Teléfono: <a href="tel:+541133062688">11 3306-2688</a></p>
         <p>Email: <a href="mailto:shaolinchenkun3@gmail.com">shaolinchenkun3@gmail.com</a></p>
       </div>
-
       <div class="sedes">
         <h3>Sedes de la Escuela Shaolin Chen</h3>
         <div class="sede-item"><strong>C.A.B.A.</strong><br>Gran Maestro R. J. Yang</div>
-        <div class="sede-item"><strong>La Boca:</strong> Sifu Flores</div>
+        <div class="sede-item"><strong>La Boca:</strong> Shifu Flores</div>
         <div class="sede-item"><strong>Misiones / Posadas:</strong> Sifu Carballo</div>
         <div class="sede-item"><strong>Entre Ríos / La Paz:</strong> Profesora Flores</div>
         <div class="sede-item"><strong>Provincia de Buenos Aires</strong></div>
-        <div class="sede-item">• Ciudad Evita: Sifu Juan Pablo Spina / Sifu Ricardo Pamparo</div>
-        <div class="sede-item">• Tortuguitas: Sifu Diego Nuñez</div>
+        <div class="sede-item">• Ciudad Evita: Shifu Juan Pablo Spina / Shifu Ricardo Pamparo</div>
+        <div class="sede-item">• Tortuguitas: Shifu Mariano Nuñez</div>
         <div class="sede-item">• Lanús: Prof. Patricia Morera</div>
       </div>
     </section>
   </main>
 
   <div class="aviso-autorizacion">
-    Sitio web no oficial con fines educativos e informativos.
+    Inscripto en enseñanza privada del Ministerio de Educación y de Justicia N°1705/87. Personería jurídica A/2.367. Sitio web no oficial con fines educativos e informativos.
   </div>
 
-  <!-- Lightbox -->
   <div id="lightbox" onclick="cerrarLightbox()">
     <div id="lightbox-content">
       <img id="lightbox-img" src="" alt="Imagen ampliada" />
@@ -606,45 +245,21 @@
     function mostrar(id) {
       document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
       document.querySelectorAll("nav.desktop-nav button").forEach(btn => btn.classList.remove("active"));
-      const sec = document.getElementById(id);
-      if (sec) sec.classList.add("active");
+      const sec = document.getElementById(id); if(sec) sec.classList.add("active");
       const btn = document.querySelector(`nav.desktop-nav button[onclick="mostrar('${id}')"]`);
-      if (btn) btn.classList.add("active");
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if(btn) btn.classList.add("active");
+      window.scrollTo({ top:0, behavior:'smooth' });
     }
-
-    function mostrarDesdeMobile(id) {
-      mostrar(id);
-      toggleMobileMenu();
-    }
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
-    }
-
-    function ampliarFoto(src, caption) {
+    function mostrarDesdeMobile(id){mostrar(id); toggleMobileMenu();}
+    function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active');}
+    function ampliarFoto(src, caption){
       document.getElementById('lightbox-img').src = src;
       const captionEl = document.getElementById('lightbox-caption');
-      if (caption) {
-        captionEl.textContent = caption;
-        captionEl.style.display = 'block';
-      } else {
-        captionEl.style.display = 'none';
-      }
-      document.getElementById('lightbox').style.display = 'flex';
+      if(caption){captionEl.textContent = caption; captionEl.style.display='block';} 
+      else{captionEl.style.display='none';}
+      document.getElementById('lightbox').style.display='flex';
     }
-
-    function cerrarLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && document.getElementById('lightbox').style.display === 'flex') {
-        cerrarLightbox();
-      }
-    });
+    function cerrarLightbox(){document.getElementById('lightbox').style.display='none';}
   </script>
 </body>
 </html>
-
