@@ -67,6 +67,9 @@
     .galeria-item:hover, .galeria-item:focus { transform: scale(1.03); box-shadow: 0 0 15px rgba(139,0,0,0.5); }
     .galeria-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
+    /* clase para ocultar exactamente los items solicitados */
+    .oculto { display: none !important; }
+
     #contacto .info-contacto { max-width: 700px; margin: 0 auto 20px; text-align: center; font-size: 1em; }
     #contacto .info-contacto p { margin: 8px 0; font-weight: 600; word-break: break-word; }
     #contacto .info-contacto a { color: #8b0000; text-decoration: none; }
@@ -134,7 +137,7 @@
       <h2>Shaolin Chen - Escuela de Kung Fu, Tai Chi Chuan y Chi Kung</h2>
       <div class="inicio-contenido">
         <div class="texto-inicio">
-         <p>Bienvenidos a <strong>Shaolin Chen</strong>, un espacio dedicado al entrenamiento en Kung Fu Shaolin, Tai Chi Chuan y Chi Kung. Con más de 40 años de experiencia, nos enfocamos en la práctica técnica, la disciplina y el desarrollo físico integral.</p>
+          <p>Bienvenidos a <strong>Shaolin Chen</strong>, un espacio dedicado al entrenamiento en Kung Fu Shaolin, Tai Chi Chuan y Chi Kung. Con más de 40 años de experiencia, nos enfocamos en la práctica técnica, la disciplina y el desarrollo físico integral.</p>
 <p>El <strong>Kung Fu Shaolin</strong> se basa en el trabajo de los cinco estilos tradicionales: Tigre, Dragón, Serpiente, Leopardo y Grulla. Cada uno aporta principios específicos de fuerza, velocidad, flexibilidad, agilidad y precisión, conformando un sistema completo de entrenamiento marcial.</p>
 <p><strong>Chi Kung</strong> cultiva y fortalece la energía interna (Chi) a través de ejercicios respiratorios y de concentración, mientras que <strong>Tai Chi Chuan</strong> canaliza y distribuye esa energía mediante movimientos controlados, coordinados y fluidos. Juntas, forman la base del trabajo interno que complementa la práctica física.</p>
 <p>Nuestras clases están abiertas para niños a partir de los 12 años, jóvenes y adultos de todas las edades. No se requiere experiencia previa, solo compromiso y ganas de entrenar.</p>
@@ -150,11 +153,9 @@
 <section id="quienes" tabindex="0">
   <h2>Quiénes Somos</h2>
   <div class="texto-centrado">
-<h2>Quiénes Somos</h2>
-<div class="texto-centrado">
-  <p>Fundada en los años 80, la escuela continúa transmitiendo el legado técnico y marcial del Templo Shaolin. Con más de 40 años de trayectoria, ha formado generaciones de practicantes en Kung Fu Shaolin, Tai Chi Chuan y Chi Kung, consolidando una línea de enseñanza basada en la disciplina, la precisión y la constancia.</p>
-  <p>Cada clase promueve valores como el respeto, la lealtad y la superación personal, fortaleciendo la capacidad física y la concentración. Las prácticas de <strong>Chi Kung</strong> y <strong>Tai Chi Chuan</strong> complementan el entrenamiento, mejorando la respiración, la coordinación y el control del movimiento.</p>
-  <p>La escuela cuenta con sedes de entrenamiento en Misiones, C.A.B.A., Ciudad Evita, La Boca, Entre Rios, Tortuguitas, Lanus y varias localidades de la Provincia de Buenos Aires, ofreciendo un espacio de formación abierto a jóvenes y adultos de todas las edades.</p>
+    <p>Fundada en los años 80, la escuela continúa transmitiendo el legado técnico y marcial del Templo Shaolin. Con más de 40 años de trayectoria, ha formado generaciones de practicantes en Kung Fu Shaolin, Tai Chi Chuan y Chi Kung, consolidando una línea de enseñanza basada en la disciplina, la precisión y la constancia.</p>
+    <p>Cada clase promueve valores como el respeto, la lealtad y la superación personal, fortaleciendo la capacidad física y la concentración. Las prácticas de <strong>Chi Kung</strong> y <strong>Tai Chi Chuan</strong> complementan el entrenamiento, mejorando la respiración, la coordinación y el control del movimiento.</p>
+    <p>La escuela cuenta con sedes de entrenamiento en Misiones, C.A.B.A., Ciudad Evita, La Boca, Entre Rios, Tortuguitas, Lanús y varias localidades de la Provincia de Buenos Aires, ofreciendo un espacio de formación abierto a jóvenes y adultos de todas las edades.</p>
 </div>
 
   <div class="foto-centrada">
@@ -169,49 +170,134 @@
     <section id="director" tabindex="0">
       <h2>Director General</h2>
       <div class="texto-centrado">
-        <p><p><p>El Shifu R.J. Yang cuenta con una amplia trayectoria en artes marciales, con formación en Ninjutsu Shidōchi Shingon y más de 40 años dedicados al estudio y la enseñanza del Kung Fu Shaolin, Tai Chi Chuan, Chi Kung y Ninjutsu.</p>
-<p>Su método se basa en la práctica constante, la precisión técnica y la aplicación correcta de los principios tradicionales, orientando el entrenamiento hacia la mejora continua y la eficacia marcial.</p>
-<p>Todas las formaciones son supervisadas por el Shifu Yang, asegurando coherencia en la enseñanza y el cumplimiento de valores esenciales como el respeto, la disciplina, la humildad y la perseverancia.</p>
-<p>Su enfoque prioriza la transmisión técnica y el entrenamiento riguroso, orientado al desarrollo marcial y físico de cada practicante.</p>
-<p><strong>Director General:</strong> Shifu R.J. Yang, maestro faja dorada de 8vo tuan.<br>
+        <p>El Shifu R.J. Yang cuenta con una amplia trayectoria en artes marciales, con formación en Ninjutsu Shidōchi Shingon y más de 40 años dedicados al estudio y la enseñanza del Kung Fu Shaolin, Tai Chi Chuan, Chi Kung y Ninjutsu.</p>
+        <p>Su método se basa en la práctica constante, la precisión técnica y la aplicación correcta de los principios tradicionales, orientando el entrenamiento hacia la mejora continua y la eficacia marcial.</p>
+        <p>Todas las formaciones son supervisadas por el Shifu Yang, asegurando coherencia en la enseñanza y el cumplimiento de valores esenciales como el respeto, la disciplina, la humildad y la perseverancia.</p>
+        <p>Su enfoque prioriza la transmisión técnica y el entrenamiento riguroso, orientado al desarrollo marcial y físico de cada practicante.</p>
+        <p><strong>Director General:</strong> Shifu R.J. Yang, maestro faja dorada de 8vo tuan.<br>
 <strong>Presidente de la Asociación:</strong> Maestro Daniel Carballo, faja plateada de 6to tuan.</p>
 
       </div>
       <div class="foto-centrada">
         <img src="https://i.postimg.cc/7ZbpBzSw/Imagen-de-Whats-App-2025-07-23-a-las-11-57-06-d5b04821.jpg" alt="Shifu Yang" />
-        <p>Shifu Yang, director general y maximo exponente del estilo.</p>
+        <p>Shifu Yang, director general y máximo exponente del estilo.</p>
       </div>
+
+      <!-- FOTO DEL SIFU AYOS MOVIDA AQUÍ (ANTES ESTABA EN LA GALERÍA) -->
+      <div class="foto-centrada">
+        <img src="https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg" alt="Sifu Ayos" />
+        <p>A la derecha el Sifu Yang, en el centro el Sifu Ayos.</p>
+      </div>
+      <!-- FIN FOTO MOVIDA -->
+
     </section>
 
-    <!-- Galería -->
-    <section id="galeria" tabindex="0">
-      <h2>Galería de Fotos</h2>
-      <div class="grid-galeria">
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg', '')"><img src="https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg" alt="Galería 1" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg', 'Sifu Yang junto al Sifu Victor.')"><img src="https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg" alt="Galería 2" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg', 'A la derecha el Sifu Yang, en el centro el Sifu Ayos.')"><img src="https://i.postimg.cc/gk2jFj2c/photo-2025-10-10-13-19-44.jpg" alt="Galería 3" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg', '')"><img src="https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg" alt="Galería 4" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg', '')"><img src="https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg" alt="Galería 5" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg', '')"><img src="https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg" alt="Galería 6" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')"><img src="https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg" alt="Galería 7" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')"><img src="https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg" alt="Galería 8" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg', 'Finalizando práctica en cumpleaños del Gran Maestro Yang.')"><img src="https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg" alt="Galería 9" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg', 'Entrenamiento en C.A.B.A.')"><img src="https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg" alt="Galería 10" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg', 'Sifu Yang junto a Sifu Spina.')"><img src="https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg" alt="Galería 11" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg', 'Cumpleaños N°18, sede Ciudad Evita, del Maestro J.P. Spina.')"><img src="https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg" alt="Galería 12" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg', '')"><img src="https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg" alt="Galería 13" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg', 'Sifu Yang junto a la Profesora Patricia M.')"><img src="https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg" alt="Galería 14" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg', 'Entrenamiento en C.A.B.A.')"><img src="https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg" alt="Galería 15" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg', '')"><img src="https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg" alt="Galería 16" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg', '')"><img src="https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg" alt="Galería 17" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg', '')"><img src="https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg" alt="Galería 18" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg', '')"><img src="https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg" alt="Galería 19" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg', '')"><img src="https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg" alt="Galería 20" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg', '')"><img src="https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg" alt="Galería 21" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg', '')"><img src="https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg" alt="Galería 22" /></div>
-        <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg', 'Maestro Carballo junto al Gran Maestro R.J. Yang.')"><img src="https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg" alt="Galería 23" /></div>
-      </div>
-    </section>
+   <!-- Galería -->
+<section id="galeria" tabindex="0">
+  <h2>Galería de Fotos</h2>
+  <div class="grid-galeria">
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg', '')">
+      <img src="https://i.postimg.cc/J4z0V04F/photo-2025-10-10-13-19-06.jpg" alt="Galería 1" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg', 'Sifu Yang junto al Sifu Victor.')">
+      <img src="https://i.postimg.cc/fTqLwsVh/photo-2025-10-10-13-19-19.jpg" alt="Galería 2" />
+    </div>
+
+    <!-- Sifu Ayos eliminado de aquí -->
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg', '')">
+      <img src="https://i.postimg.cc/J4Yn18sL/photo-2025-10-10-13-20-00.jpg" alt="Galería 4" />
+    </div>
+
+    <!-- FOTO 5 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg', '')">
+      <img src="https://i.postimg.cc/qMvqVqvM/photo-2025-10-10-13-20-16.jpg" alt="Galería 5" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg', '')">
+      <img src="https://i.postimg.cc/ncSzHxXF/photo-2025-10-10-13-20-28.jpg" alt="Galería 6" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')">
+      <img src="https://i.postimg.cc/gktJYpxJ/photo-2025-10-10-13-20-58.jpg" alt="Galería 7" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg', 'Sede Entre Ríos, La Paz: Sifu Flores.')">
+      <img src="https://i.postimg.cc/X71JVWrX/photo-2025-10-10-13-21-12.jpg" alt="Galería 8" />
+    </div>
+
+    <!-- FOTO 9 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg', 'Finalizando práctica en cumpleaños del Gran Maestro Yang.')">
+      <img src="https://i.postimg.cc/zvCqTmjp/photo-2025-10-10-13-41-52.jpg" alt="Galería 9" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg', 'Entrenamiento en C.A.B.A.')">
+      <img src="https://i.postimg.cc/2yQCnpwt/photo-2025-10-10-13-42-16.jpg" alt="Galería 10" />
+    </div>
+
+    <!-- FOTO 11 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg', 'Sifu Yang junto a Sifu Spina.')">
+      <img src="https://i.postimg.cc/PJWd1G49/photo-2025-10-10-13-54-35.jpg" alt="Galería 11" />
+    </div>
+
+    <!-- FOTO 12 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg', 'Cumpleaños N°18, sede Ciudad Evita.')">
+      <img src="https://i.postimg.cc/2yQCnpwK/photo-2025-10-10-13-55-05.jpg" alt="Galería 12" />
+    </div>
+
+    <!-- FOTO 13 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg', '')">
+      <img src="https://i.postimg.cc/Zn8J6kH4/photo-2025-10-10-13-55-27.jpg" alt="Galería 13" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg', 'Sifu Yang junto a la Profesora Patricia M.')">
+      <img src="https://i.postimg.cc/J418qsGZ/photo-2023-11-25-23-57-35.jpg" alt="Galería 14" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg', 'Entrenamiento en C.A.B.A.')">
+      <img src="https://i.postimg.cc/J7sYWmv3/photo-2025-10-10-19-51-38.jpg" alt="Galería 15" />
+    </div>
+
+    <!-- FOTO 16 OCULTA (PEDIDA POR VOS) -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg', '')">
+      <img src="https://i.postimg.cc/ZYWshZ2c/photo-2025-10-10-19-51-42.jpg" alt="Galería 16" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg', '')">
+      <img src="https://i.postimg.cc/WpdYPjCS/photo-2025-10-10-19-51-45.jpg" alt="Galería 17" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg', '')">
+      <img src="https://i.postimg.cc/RCWpz9yQ/photo-2025-10-10-19-51-50.jpg" alt="Galería 18" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg', '')">
+      <img src="https://i.postimg.cc/05zXqxFV/photo-2025-10-10-19-51-53.jpg" alt="Galería 19" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg', '')">
+      <img src="https://i.postimg.cc/668bNwgj/photo-2025-10-10-19-51-56.jpg" alt="Galería 20" />
+    </div>
+
+    <!-- FOTO 21 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg', '')">
+      <img src="https://i.postimg.cc/WpdYPjC9/photo-2025-10-10-19-51-58.jpg" alt="Galería 21" />
+    </div>
+
+    <!-- FOTO 22 OCULTA -->
+    <div class="galeria-item oculto" onclick="ampliarFoto('https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg', '')">
+      <img src="https://i.postimg.cc/WpdYPjCH/photo-2025-10-10-19-52-02.jpg" alt="Galería 22" />
+    </div>
+
+    <div class="galeria-item" onclick="ampliarFoto('https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg', 'Maestro Carballo junto al Gran Maestro R.J. Yang.')">
+      <img src="https://i.postimg.cc/43rBBGLH/Imagen-de-Whats-App-2025-10-18-a-las-23-45-21-3a44a8af.jpg" alt="Galería 23" />
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Contacto -->
     <section id="contacto" tabindex="0">
@@ -228,11 +314,12 @@
         <div class="sede-item"><strong>Misiones / Posadas:</strong> Shifu Daniel Carballo</div>
         <div class="sede-item"><strong>Entre Ríos / La Paz:</strong> Profesora Flores</div>
         <div class="sede-item"><strong>Provincia de Buenos Aires</strong></div>
-        <div class="sede-item">• Ciudad Evita: Shifu Juan Pablo Spina / Shifu Ricardo Pamparo</div>
+        <div class="sede-item">• Ciudad Evita: Pramparo 4to Thuan</div>
         <div class="sede-item">• Tortuguitas: Shifu Mariano Nuñez</div>
         <div class="sede-item">• Lanús: Profesora Patricia Morera</div>
       </div>
     </section>
+
   </main>
 
   <div class="aviso-autorizacion">
@@ -255,20 +342,16 @@
       if(btn) btn.classList.add("active");
       window.scrollTo({ top:0, behavior:'smooth' });
     }
-    function mostrarDesdeMobile(id){mostrar(id); toggleMobileMenu();}
-    function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active');}
+    function mostrarDesdeMobile(id){ mostrar(id); toggleMobileMenu(); }
+    function toggleMobileMenu(){ document.getElementById('mobileMenu').classList.toggle('active'); }
     function ampliarFoto(src, caption){
       document.getElementById('lightbox-img').src = src;
       const captionEl = document.getElementById('lightbox-caption');
-      if(caption){captionEl.textContent = caption; captionEl.style.display='block';} 
-      else{captionEl.style.display='none';}
+      if(caption){ captionEl.textContent = caption; captionEl.style.display='block'; }
+      else { captionEl.style.display='none'; }
       document.getElementById('lightbox').style.display='flex';
     }
-    function cerrarLightbox(){document.getElementById('lightbox').style.display='none';}
+    function cerrarLightbox(){ document.getElementById('lightbox').style.display='none';}
   </script>
 </body>
 </html>
-
-
-
-
